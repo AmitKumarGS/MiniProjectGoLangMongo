@@ -91,11 +91,11 @@ func main() {
 	fmt.Println("8000")
 	defer session.Close()
 	router := mux.NewRouter()
-	router.HandleFunc("/todo", GetBooks).Methods("GET")
-	router.HandleFunc("/todo/{id}", GetBooks).Methods("GET")
-	router.HandleFunc("/todo", CreateBook).Methods("POST")
-	router.HandleFunc("/todo/{id}", UpdateBook).Methods("PATCH")
-	router.HandleFunc("/todo/{id}", DeleteBook).Methods("DELETE")
+	router.HandleFunc("/", GetBooks).Methods("GET")
+	router.HandleFunc("/{id}", GetBooks).Methods("GET")
+	router.HandleFunc("/", CreateBook).Methods("POST")
+	router.HandleFunc("/{id}", UpdateBook).Methods("PATCH")
+	router.HandleFunc("/{id}", DeleteBook).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8000", router))
 }
